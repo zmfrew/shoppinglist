@@ -19,35 +19,44 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="hod-hR-wBJ">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="itemCell" id="hod-hR-wBJ" customClass="ItemTableViewCell" customModule="ShoppingList" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hod-hR-wBJ" id="i4k-TF-iSy">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mUj-T5-JQp">
-                                            <rect key="frame" x="326" y="5" width="33" height="33"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" secondItem="mUj-T5-JQp" secondAttribute="height" multiplier="1:1" id="AJk-co-yn5"/>
-                                            </constraints>
-                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(ITEM)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Cy-Z4-cnZ">
                                             <rect key="frame" x="16" y="12" width="51" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FJ1-dM-5r7">
+                                            <rect key="frame" x="335" y="8" width="27" height="27.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="FJ1-dM-5r7" secondAttribute="height" multiplier="1:1" id="3jc-7M-1gn"/>
+                                            </constraints>
+                                            <state key="normal" backgroundImage="incomplete"/>
+                                            <connections>
+                                                <action selector="isInCartButtonTapped:" destination="hod-hR-wBJ" eventType="touchUpInside" id="Lu4-8x-2Zt"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="mUj-T5-JQp" secondAttribute="trailing" constant="16" id="JsY-w2-q6H"/>
-                                        <constraint firstItem="mUj-T5-JQp" firstAttribute="centerY" secondItem="i4k-TF-iSy" secondAttribute="centerY" id="Sk6-nl-Rsl"/>
+                                        <constraint firstItem="FJ1-dM-5r7" firstAttribute="top" secondItem="i4k-TF-iSy" secondAttribute="top" constant="8" id="Dnf-me-Jfr"/>
+                                        <constraint firstAttribute="bottom" secondItem="FJ1-dM-5r7" secondAttribute="bottom" constant="8" id="HVT-OI-Gwx"/>
+                                        <constraint firstItem="FJ1-dM-5r7" firstAttribute="centerY" secondItem="i4k-TF-iSy" secondAttribute="centerY" id="dqQ-rq-f6h"/>
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="2Cy-Z4-cnZ" secondAttribute="trailing" constant="20" symbolic="YES" id="hY2-NE-tyz"/>
-                                        <constraint firstItem="mUj-T5-JQp" firstAttribute="top" secondItem="i4k-TF-iSy" secondAttribute="top" constant="5" id="j4c-QN-IQi"/>
                                         <constraint firstItem="2Cy-Z4-cnZ" firstAttribute="centerY" secondItem="i4k-TF-iSy" secondAttribute="centerY" id="mFm-Iw-eTE"/>
+                                        <constraint firstAttribute="trailing" secondItem="FJ1-dM-5r7" secondAttribute="trailing" constant="13" id="oJi-zI-Hwc"/>
                                         <constraint firstItem="2Cy-Z4-cnZ" firstAttribute="leading" secondItem="i4k-TF-iSy" secondAttribute="leading" constant="16" id="qoT-dG-Kql"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="isInCartButton" destination="FJ1-dM-5r7" id="WWq-b0-uRD"/>
+                                    <outlet property="nameLabel" destination="2Cy-Z4-cnZ" id="Umf-5y-d6e"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -82,4 +91,7 @@
             <point key="canvasLocation" x="52" y="107.49625187406298"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="incomplete" width="256" height="256"/>
+    </resources>
 </document>

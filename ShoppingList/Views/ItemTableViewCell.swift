@@ -8,17 +8,30 @@
 
 import UIKit
 
+// MARK: - Delegate Protocol
+protocol ItemTableViewCellDelegate: class {
+    func cellButtonTapped(_ cell: ItemTableViewCell)
+}
+
 class ItemTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    // MARK: - Outlets
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var isInCartButton: UIButton!
+    
+    // MARK: - Actinos
+    @IBAction func isInCartButtonTapped(_ sender: Any) {
+        delegate?.cellButtonTapped(self)
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    // MARK: - Properties
+    weak var delegate: ItemTableViewCellDelegate?
+    
+    // MARK: - Methods
+    func updateCell(item: Item) {
+        let imageName = item.isInCart ? "complete" : "incomplete"
+        guard let image = UIImage(named: imageName) else { return }
+        isInCartButton.setBackgroundImage(UIImage(named: imageName), for: .normal)
     }
-
+    
 }
