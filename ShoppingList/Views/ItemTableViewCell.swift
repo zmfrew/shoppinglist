@@ -31,7 +31,8 @@ class ItemTableViewCell: UITableViewCell {
     func updateCell(item: Item) {
         let imageName = item.isInCart ? "complete" : "incomplete"
         guard let image = UIImage(named: imageName) else { return }
-        isInCartButton.setBackgroundImage(UIImage(named: imageName), for: .normal)
+        isInCartButton.setBackgroundImage(image, for: .normal)
+        nameLabel.text = item.name
     }
     
 }

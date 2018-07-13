@@ -10,47 +10,51 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--Items List Table View Controller-->
         <scene sceneID="jgf-XU-P4I">
             <objects>
-                <tableViewController id="rtr-8a-tMC" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="VOG-sZ-GrT">
+                <tableViewController id="rtr-8a-tMC" customClass="ItemsListTableViewController" customModule="ShoppingList" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="VOG-sZ-GrT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="itemCell" id="hod-hR-wBJ" customClass="ItemTableViewCell" customModule="ShoppingList" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hod-hR-wBJ" id="i4k-TF-iSy">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(ITEM)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Cy-Z4-cnZ">
-                                            <rect key="frame" x="16" y="12" width="51" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FJ1-dM-5r7">
-                                            <rect key="frame" x="335" y="8" width="27" height="27.5"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" secondItem="FJ1-dM-5r7" secondAttribute="height" multiplier="1:1" id="3jc-7M-1gn"/>
-                                            </constraints>
-                                            <state key="normal" backgroundImage="incomplete"/>
-                                            <connections>
-                                                <action selector="isInCartButtonTapped:" destination="hod-hR-wBJ" eventType="touchUpInside" id="Lu4-8x-2Zt"/>
-                                            </connections>
-                                        </button>
+                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y9W-q9-HXx">
+                                            <rect key="frame" x="8" y="6" width="359" height="37.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Cy-Z4-cnZ">
+                                                    <rect key="frame" x="0.0" y="0.0" width="322" height="37.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FJ1-dM-5r7">
+                                                    <rect key="frame" x="322" y="0.0" width="37" height="37.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="FJ1-dM-5r7" secondAttribute="height" multiplier="1:1" id="3jc-7M-1gn"/>
+                                                    </constraints>
+                                                    <state key="normal" backgroundImage="incomplete"/>
+                                                    <connections>
+                                                        <action selector="isInCartButtonTapped:" destination="hod-hR-wBJ" eventType="touchUpInside" id="Lu4-8x-2Zt"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="FJ1-dM-5r7" firstAttribute="top" secondItem="i4k-TF-iSy" secondAttribute="top" constant="8" id="Dnf-me-Jfr"/>
-                                        <constraint firstAttribute="bottom" secondItem="FJ1-dM-5r7" secondAttribute="bottom" constant="8" id="HVT-OI-Gwx"/>
-                                        <constraint firstItem="FJ1-dM-5r7" firstAttribute="centerY" secondItem="i4k-TF-iSy" secondAttribute="centerY" id="dqQ-rq-f6h"/>
-                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="2Cy-Z4-cnZ" secondAttribute="trailing" constant="20" symbolic="YES" id="hY2-NE-tyz"/>
-                                        <constraint firstItem="2Cy-Z4-cnZ" firstAttribute="centerY" secondItem="i4k-TF-iSy" secondAttribute="centerY" id="mFm-Iw-eTE"/>
-                                        <constraint firstAttribute="trailing" secondItem="FJ1-dM-5r7" secondAttribute="trailing" constant="13" id="oJi-zI-Hwc"/>
-                                        <constraint firstItem="2Cy-Z4-cnZ" firstAttribute="leading" secondItem="i4k-TF-iSy" secondAttribute="leading" constant="16" id="qoT-dG-Kql"/>
+                                        <constraint firstItem="y9W-q9-HXx" firstAttribute="leading" secondItem="i4k-TF-iSy" secondAttribute="leading" constant="8" id="Ht0-Cu-ShZ"/>
+                                        <constraint firstItem="y9W-q9-HXx" firstAttribute="top" secondItem="i4k-TF-iSy" secondAttribute="top" constant="6" id="WNC-61-VVT"/>
+                                        <constraint firstItem="y9W-q9-HXx" firstAttribute="centerX" secondItem="i4k-TF-iSy" secondAttribute="centerX" id="iWC-Ik-BzG"/>
+                                        <constraint firstAttribute="bottom" secondItem="y9W-q9-HXx" secondAttribute="bottom" constant="6" id="lxk-g4-HOx"/>
+                                        <constraint firstItem="y9W-q9-HXx" firstAttribute="centerY" secondItem="i4k-TF-iSy" secondAttribute="centerY" id="qo8-6T-OdO"/>
+                                        <constraint firstAttribute="trailing" secondItem="y9W-q9-HXx" secondAttribute="trailing" constant="8" id="ssW-8b-lVE"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -65,7 +69,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Wjf-nB-jZa">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="fYE-uy-XU0"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="fYE-uy-XU0">
+                            <connections>
+                                <action selector="addButtonTapped:" destination="rtr-8a-tMC" id="sG7-aC-K7B"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aK8-CV-hsr" userLabel="First Responder" sceneMemberID="firstResponder"/>

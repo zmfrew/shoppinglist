@@ -24,6 +24,11 @@ class ItemController {
         CoreDataStack.context.delete(item)
     }
     
+    func toggleIsItemInCart(item: Item) {
+        item.isInCart = !item.isInCart
+        saveToPersistentStore()
+    }
+    
     // MARK: - Persistence
     func saveToPersistentStore() {
         do {

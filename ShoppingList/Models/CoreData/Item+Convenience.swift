@@ -11,7 +11,7 @@ import CoreData
 
 extension Item {
     
-    convenience init(name: String, isInCart: Bool = false, context: NSManagedObjectContext = CoreDataStack.context) {
+    convenience init(name: String, isInCart: Bool = false, timeStamp: Date = Date(), context: NSManagedObjectContext = CoreDataStack.context) {
         self.init(context: context)
         self.name = name
         self.isInCart = isInCart
