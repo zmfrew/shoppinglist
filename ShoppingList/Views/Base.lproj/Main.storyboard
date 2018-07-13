@@ -42,7 +42,7 @@
                                                     </constraints>
                                                     <state key="normal" backgroundImage="incomplete"/>
                                                     <connections>
-                                                        <action selector="isInCartButtonTapped:" destination="hod-hR-wBJ" eventType="touchUpInside" id="Lu4-8x-2Zt"/>
+                                                        <action selector="hasBeenPurchasedButtonTapped:" destination="hod-hR-wBJ" eventType="touchUpInside" id="Lu4-8x-2Zt"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -58,7 +58,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="isInCartButton" destination="FJ1-dM-5r7" id="WWq-b0-uRD"/>
+                                    <outlet property="hasBeenPurchasedButton" destination="FJ1-dM-5r7" id="WWq-b0-uRD"/>
                                     <outlet property="nameLabel" destination="2Cy-Z4-cnZ" id="Umf-5y-d6e"/>
                                 </connections>
                             </tableViewCell>

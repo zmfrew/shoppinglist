@@ -17,10 +17,10 @@ class ItemTableViewCell: UITableViewCell {
 
     // MARK: - Outlets
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var isInCartButton: UIButton!
+    @IBOutlet weak var hasBeenPurchasedButton: UIButton!
     
     // MARK: - Actinos
-    @IBAction func isInCartButtonTapped(_ sender: Any) {
+    @IBAction func hasBeenPurchasedButtonTapped(_ sender: Any) {
         delegate?.cellButtonTapped(self)
     }
     
@@ -29,9 +29,9 @@ class ItemTableViewCell: UITableViewCell {
     
     // MARK: - Methods
     func updateCell(item: Item) {
-        let imageName = item.isInCart ? "complete" : "incomplete"
+        let imageName = item.hasBeenPurchased ? "complete" : "incomplete"
         guard let image = UIImage(named: imageName) else { return }
-        isInCartButton.setBackgroundImage(image, for: .normal)
+        hasBeenPurchasedButton.setBackgroundImage(image, for: .normal)
         nameLabel.text = item.name
     }
     

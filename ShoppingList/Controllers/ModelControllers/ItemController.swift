@@ -22,10 +22,11 @@ class ItemController {
     
     func delete(item: Item) {
         CoreDataStack.context.delete(item)
+        saveToPersistentStore()
     }
     
-    func toggleIsItemInCart(item: Item) {
-        item.isInCart = !item.isInCart
+    func togglehasBeenPurchased(item: Item) {
+        item.hasBeenPurchased = !item.hasBeenPurchased
         saveToPersistentStore()
     }
     

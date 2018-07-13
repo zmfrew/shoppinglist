@@ -30,7 +30,7 @@ class ItemsListTableViewController: UITableViewController {
     // MARK: - Properties
     let fetchedResultsController: NSFetchedResultsController<Item> = {
         let fetchRequest: NSFetchRequest<Item> = Item.fetchRequest()
-        let timeStampSortDescriptor = NSSortDescriptor(key: "timeStamp", ascending: false)
+        let timeStampSortDescriptor = NSSortDescriptor(key: "timeStamp", ascending: true)
         fetchRequest.sortDescriptors = [timeStampSortDescriptor]
         return NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: CoreDataStack.context, sectionNameKeyPath: nil, cacheName: nil)
     }()
@@ -81,7 +81,7 @@ extension ItemsListTableViewController: ItemTableViewCellDelegate {
     func cellButtonTapped(_ cell: ItemTableViewCell) {
         guard let indexPath = tableView.indexPath(for: cell) else { return }
         let item = fetchedResultsController.object(at: indexPath)
-        ItemController.shared.toggleIsItemInCart(item: item)
+        ItemController.shared.togglehasBeenPurchased(item: item)
         cell.updateCell(item: item)
     }
     
@@ -101,13 +101,12 @@ extension ItemsListTableViewController: NSFetchedResultsControllerDelegate {
         switch type {
         case .delete:
             guard let indexPath = indexPath else { return }
-            tableView.deleteRows(at: [indexPath], with: .left)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
         case .insert:
-            guard let indexPath = newIndexPath else { return }
-            tableView.insertRows(at: [indexPath], with: .automatic)
+            guard let newIndexPath = newIndexPath else { return }
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
         case .move:
-            guard let indexPath = indexPath,
-                let newIndexPath = newIndexPath else { return }
+            guard let indexPath = indexPath, let newIndexPath = newIndexPath else { return }
             tableView.moveRow(at: indexPath, to: newIndexPath)
         case .update:
             guard let indexPath = indexPath else { return }
